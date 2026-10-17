@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJVR4VPM9J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XJVR4VPM9J');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut Professionnel et Technologique d'Oyo</title>
+    <meta name="description" content="Filières BTS de l'IPTO à Oyo : génie informatique et réseau, génie électrique et thermique, génie civil et rural, transport et logistique.">
+    <link rel="icon" href="assets/images/logo-ipto.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/ipto.css">
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+
+    <!-- ============ NAVIGATION ============ -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-Ipto" aria-label="IPTO - Accueil">
+                <img src="assets/images/logo-ipto.jpg" alt="Logo de l'IPTO">
+                <span class="logo-text">
+                    <strong>IPTO</strong>
+                    <small>Institut Pro. &amp; Technologique d'Oyo</small>
+                </span>
+            </a>
+
+            <nav class="navigation" aria-label="Navigation principale">
+                <div class="nav--menu" id="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="formation.html" class="actif">Formations</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="actualite.html">Actualités</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <a href="#" class="btn-student" data-soon="L'espace étudiant arrive bientôt.">
+                        <i class="fa-solid fa-graduation-cap"></i> Espace étudiant
+                    </a>
+                    <div class="nav--fermer" id="nav-fermer"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+                <div class="nav--open" id="toggle"><i class="fa-solid fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============ EN-TÊTE ============ -->
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow gold">Formations</p>
+                <h1>Construisez votre parcours d'excellence</h1>
+                <p class="lead">Quatre filières BTS professionnalisantes, alignées sur les besoins du marché du travail.</p>
+            </div>
+        </section>
+
+        <!-- ============ FILIÈRES ============ -->
+        <section class="section">
+            <div class="container filiere-list">
+                <article class="filiere-row" id="informatique" data-reveal>
+                    <div class="filiere-visual">
+                        <img src="assets/images/filiere-informatique.png" alt="Technicien réseau dans une salle serveurs" loading="lazy">
+                        <img class="inset" src="assets/images/filiere-reseau.webp" alt="Technicienne réseau devant une baie de brassage" loading="lazy">
+                    </div>
+                    <div class="filiere-info">
+                        <p class="eyebrow gold">Filière</p>
+                        <h2>Génie Informatique &amp; Réseau</h2>
+                        <p>Formation complète en développement logiciel, administration systèmes et réseaux informatiques.</p>
+                        <div class="meta-row">
+                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
+                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                        </div>
+                        <div class="courses">
+                            <h3>Cours principaux</h3>
+                            <ul>
+                                <li>Programmation (Python, Java, C++)</li>
+                                <li>Développement Web et Mobile</li>
+                                <li>Administration Systèmes Linux/Windows</li>
+                                <li>Réseaux et Sécurité Informatique</li>
+                                <li>Bases de Données</li>
+                            </ul>
+                        </div>
+                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="filiere-row reverse" id="electrique" data-reveal>
+                    <div class="filiere-visual">
+                        <img src="assets/images/filiere-electrique.jpg" alt="Technicien électricien en intervention" loading="lazy">
+                        <img class="inset" src="assets/images/visite-centrale-solaire.jpeg" alt="Étudiants en visite d'une centrale solaire" loading="lazy">
+                    </div>
+                    <div class="filiere-info">
+                        <p class="eyebrow gold">Filière</p>
+                        <h2>Génie Électrique &amp; Thermique</h2>
+                        <p>Formation alliant maîtrise des systèmes électriques et des technologies thermiques.</p>
+                        <div class="meta-row">
+                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
+                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                        </div>
+                        <div class="courses">
+                            <h3>Cours principaux</h3>
+                            <ul>
+                                <li>Électrotechnique et Machines Électriques</li>
+                                <li>Électronique de puissance</li>
+                                <li>Thermodynamique et Transferts Thermiques</li>
+                                <li>Automatisme et Régulation</li>
+                                <li>Énergies Renouvelables et Efficacité Énergétique</li>
+                            </ul>
+                        </div>
+                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="filiere-row" id="civil" data-reveal>
+                    <div class="filiere-visual">
+                        <img src="assets/images/filiere-civil.jpg" alt="Technicien sur un chantier de construction" loading="lazy">
+                        <img class="inset" src="assets/images/filiere-rural.jpg" alt="Ingénieurs devant des installations hydrauliques" loading="lazy">
+                    </div>
+                    <div class="filiere-info">
+                        <p class="eyebrow gold">Filière</p>
+                        <h2>Génie Civil &amp; Rural</h2>
+                        <p>Formation en construction, travaux publics, hydraulique, topographie et aménagement des territoires ruraux et urbains.</p>
+                        <div class="meta-row">
+                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
+                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                        </div>
+                        <div class="courses">
+                            <h3>Cours principaux</h3>
+                            <ul>
+                                <li>Résistance des Matériaux et Béton Armé</li>
+                                <li>Hydraulique et Assainissement</li>
+                                <li>Topographie, Sols et Fondations</li>
+                                <li>Routes et Travaux Publics</li>
+                            </ul>
+                        </div>
+                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="filiere-row reverse" id="transport" data-reveal>
+                    <div class="filiere-visual">
+                        <div class="noimg-visual" aria-hidden="true"><i class="fa-solid fa-truck"></i></div>
+                    </div>
+                    <div class="filiere-info">
+                        <p class="eyebrow gold">Filière</p>
+                        <h2>Transport &amp; Logistique</h2>
+                        <p>Formation complète en gestion des flux, organisation des chaînes d'approvisionnement et maîtrise des systèmes de transport.</p>
+                        <div class="meta-row">
+                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
+                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                        </div>
+                        <div class="courses">
+                            <h3>Cours principaux</h3>
+                            <ul>
+                                <li>Gestion de la Chaîne Logistique</li>
+                                <li>Transport Multimodal et Intermodal</li>
+                                <li>Gestion des Stocks et Douanes</li>
+                                <li>Systèmes d'Information Logistique</li>
+                            </ul>
+                        </div>
+                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ PIED DE PAGE ============ -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-Ipto">
+                    <img src="assets/images/logo-ipto.jpg" alt="Logo de l'IPTO">
+                    <span class="logo-text">
+                        <strong>IPTO</strong>
+                        <small>Oyo, République du Congo</small>
+                    </span>
+                </a>
+                <p>Institut Professionnel et Technologique d'Oyo — Excellence en formation professionnelle et technologique.</p>
+            </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="formation.html">Formations</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Coordonnées</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i><span>Avenue de l'Indépendance, Oyo, République du Congo</span></li>
+                    <li><i class="fa-solid fa-phone"></i><a href="tel:+242069558265">+242 069558265</a></li>
+                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:mibantessageorvelain@gmail.com">mibantessageorvelain@gmail.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Suivez-nous</h4>
+                <div class="socials">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VbBiHotBKfI76L6F4o2q" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">© 2026 Institut Professionnel et Technologique d'Oyo — Tous droits réservés.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
