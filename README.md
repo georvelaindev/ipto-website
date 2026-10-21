@@ -12,7 +12,7 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 |------|---------|---------|
 | Accueil | `index.html` | Présentation, chiffres clés, filières, actualités, galerie du campus, témoignages, partenaires |
 | À propos | `about.html` | Histoire, engagements, mot du ministre, valeurs, qualité de formation |
-| Formations | `formation.html` | Les 4 filières BTS avec cours principaux |
+| Formations | `formation.html` | Cartes des 7 filières (5 ouvertes, 2 non ouvertes) avec options, filtre par statut et programme déployable |
 | Admissions | `admission.html` | Processus, calendrier, conditions, documents, frais |
 | Actualités | `actualite.html` | Événements de l'institut |
 | Contact | `contact.html` | Coordonnées, formulaire de contact, FAQ |
@@ -34,9 +34,11 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 - Carrousel de témoignages (défilement automatique, points cliquables, balayage tactile, pause au survol)
 - Partenaires en défilement continu
 - Compteurs animés et apparition progressive des blocs au défilement
+- Page Formations : filtres (toutes, ouvertes, non ouvertes), programme qui se déploie sur chaque carte, lien direct vers une filière (`formation.html#civil`)
 - Statut automatique **« À venir » / « Terminé »** des événements et des dates d'admission, calculé selon la date du jour
 - Formulaire de contact avec validation (nom, e-mail, téléphone congolais ou international), envoi sans rechargement de page et protection anti-spam
 - FAQ en accordéon
+- Affiches et photos agrandissables au clic (galerie de l'accueil, affiche de la conférence)
 - Bouton « Retour en haut » et ancres qui tiennent compte de la barre de navigation
 - Respect de `prefers-reduced-motion` et navigation au clavier
 
@@ -70,6 +72,21 @@ ipto-website/
 ├── .gitignore
 └── README.md
 ```
+
+## Couleurs
+
+Les couleurs sont définies une seule fois, dans les variables `:root` de `assets/css/ipto.css`.
+
+| Rôle | Valeur |
+|------|--------|
+| Marine (fonds sombres, titres) | `#0a2352` |
+| Bleu (accents, dégradés) | `#0e5aae` |
+| Or (boutons, mises en avant) | `#f2b327` |
+| Or foncé (texte doré sur fond clair) | `#8a5f00` |
+| Fond de page | `#f6f8fc` |
+| Texte | `#0e1b3a` (gris secondaire `#5a6a85`) |
+
+Tous les textes respectent un contraste d'au moins 4,5:1 avec leur fond (norme WCAG AA).
 
 ## Lancer le site en local
 
@@ -120,7 +137,7 @@ Puis ouvrez <http://localhost:8000>.
 - [ ] Vérifier la liste des **partenaires**
 - [ ] Remplacer l'adresse e-mail de contact par l'adresse officielle de l'école (pied de page et page Contact)
 - [ ] Renseigner les vrais liens des **réseaux sociaux** (Facebook, Instagram) dans le pied de page
-- [ ] Ajouter une photo pour la filière **Transport & Logistique** (la carte affiche une illustration en attendant)
+- [ ] Ajouter une photo pour la filière **Administration, Commerce et Gestion** (la carte affiche une illustration en attendant)
 - [ ] Remplacer `batiment-principal.jpg` par une version en meilleure résolution
 - [ ] Vérifier les textes officiels (mot du ministre, mention du ministère de rattachement)
 

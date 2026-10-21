@@ -1,8 +1,4 @@
-/* =====================================================================
-   IPTO — script.js
-   JavaScript sans dépendance, chargé sur toutes les pages (defer).
-   Chaque module s'auto-désactive si les éléments ciblés n'existent pas.
-   ===================================================================== */
+// IPTO — script.js JavaScript sans dépendance, chargé sur toutes les pages (defer). Chaque module s'auto-désactive si les éléments ciblés n'existent pas.
 (() => {
   'use strict';
 
@@ -23,9 +19,7 @@
     });
   };
 
-  /* ===================================================================
-     1. NAVIGATION : menu mobile + ombre au défilement
-     =================================================================== */
+  // menu mobile
   function initNav() {
     const header = $('.navbar');
     const menu = $('#nav-menu');
@@ -80,10 +74,7 @@
     });
   }
 
-  /* ===================================================================
-     2. BOUTONS CONTENANT UN LIEN : toute la surface du bouton est cliquable
-     (le HTML <button><a>…</a></button> ne réagissait que sur le texte)
-     =================================================================== */
+  // un <button> qui contient un lien : tout le bouton est cliquable
   function initButtonLinks() {
     $$('button > a[href]').forEach((a) => {
       a.parentElement.addEventListener('click', (e) => {
@@ -93,9 +84,7 @@
     });
   }
 
-  /* ===================================================================
-     3. BOUTON « RETOUR EN HAUT »
-     =================================================================== */
+  // bouton retour en haut
   function initBackToTop() {
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -112,10 +101,7 @@
     );
   }
 
-  /* ===================================================================
-     4. APPARITION AU DÉFILEMENT (remplace animation-timeline, non supporté
-        par Firefox/Safari). Sans JS, tout reste visible.
-     =================================================================== */
+  // apparition des blocs au défilement
   function initReveal() {
     if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
@@ -154,9 +140,7 @@
     els.forEach((el) => io.observe(el));
   }
 
-  /* ===================================================================
-     5. COMPTEURS ANIMÉS (page d'accueil : 100+, 7+, 50+, 95%)
-     =================================================================== */
+  // chiffres qui montent
   function initCounters() {
     const els = $$('.field-icons .box h2, [data-counter]');
     if (!els.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
@@ -193,9 +177,7 @@
   }
 
 
-  /* ===================================================================
-     5b. LIENS « BIENTÔT DISPONIBLE » (ex. Espace étudiant) : petit message
-     =================================================================== */
+  // liens pas encore actifs : petit message
   function initSoon() {
     const links = $$('[data-soon]');
     if (!links.length) return;
@@ -219,10 +201,7 @@
   }
 
 
-  /* ===================================================================
-     5c. CARROUSEL DE TÉMOIGNAGES : défilement auto, points cliquables,
-         pause au survol / au focus, balayage tactile
-     =================================================================== */
+  // témoignages : défilement auto, points, pause au survol
   function initCarousel() {
     const root = $('[data-carousel]');
     if (!root) return;
@@ -286,9 +265,101 @@
     start();
   }
 
-  /* ===================================================================
-     6. ÉVÉNEMENTS : statut automatique selon la date (data-date="AAAA-MM-JJ")
-     =================================================================== */
+
+  // page formations : filtres, programme déployable, lien direct vers une filière
+  function initFilieres() {
+    const grid = $('[data-filieres]');
+    if (!grid) return;
+    const cards = $$('[data-filiere]', grid);
+    const buttons = $$('[data-filter]');
+
+    const setOpen = (card, open) => {
+      const toggle = $('.fcard-toggle', card);
+      if (!toggle) return;
+      card.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      $('span', toggle).textContent = open ? 'Masquer le programme' : 'Voir le programme';
+    };
+
+    cards.forEach((card) => {
+      const toggle = $('.fcard-toggle', card);
+      if (toggle) toggle.addEventListener('click', () => setOpen(card, !card.classList.contains('open')));
+    });
+
+    const applyFilter = (filter) => {
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.statut === filter;
+        card.hidden = !show;
+      });
+      buttons.forEach((b) => {
+        const on = b.dataset.filter === filter;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    };
+    buttons.forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.filter)));
+
+    // /formation.html#civil : ouvre la carte et la met en évidence
+    const fromHash = () => {
+      const card = cards.find((c) => c.id === location.hash.slice(1));
+      if (!card) return;
+      applyFilter('all');
+      setOpen(card, true);
+      card.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' });
+      card.classList.add('is-focus');
+      setTimeout(() => card.classList.remove('is-focus'), 3000);
+    };
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  }
+
+
+  // agrandir une image au clic (attribut data-lightbox)
+  function initLightbox() {
+    const images = $$('[data-lightbox]');
+    if (!images.length) return;
+
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', 'Image agrandie');
+    box.innerHTML = '<button type="button" class="lightbox-close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">';
+    document.body.append(box);
+    const big = $('img', box);
+    const closeBtn = $('.lightbox-close', box);
+    let origin = null;
+
+    const hide = () => {
+      box.classList.remove('visible');
+      document.body.classList.remove('no-scroll');
+      if (origin) origin.focus();
+    };
+    const show = (img) => {
+      origin = img;
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.classList.add('visible');
+      document.body.classList.add('no-scroll');
+      closeBtn.focus();
+    };
+
+    images.forEach((img) => {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', `${img.alt || 'Image'} : agrandir`);
+      img.addEventListener('click', () => show(img));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(img); }
+      });
+    });
+    box.addEventListener('click', (e) => { if (e.target !== big) hide(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && box.classList.contains('visible')) hide();
+    });
+  }
+
+  // événements : badge « terminé » ou « à venir » selon la date
   function initEvents() {
     const cards = $$('.souvs-evens, [data-event]');
     if (!cards.length) return;
@@ -322,9 +393,7 @@
     }
   }
 
-  /* ===================================================================
-     7. FAQ en accordéon (page Contact)
-     =================================================================== */
+  // questions fréquentes (page contact)
   function initFaq() {
     const items = $$('.question-box .questions');
     if (!items.length) return;
@@ -357,9 +426,7 @@
     });
   }
 
-  /* ===================================================================
-     8. FORMULAIRE DE CONTACT : validation + envoi AJAX (Formspree)
-     =================================================================== */
+  // formulaire de contact : vérification et envoi (Formspree)
   function initContactForm() {
     const form = $('form.message-box');
     if (!form) return;
@@ -473,9 +540,7 @@
     });
   }
 
-  /* ===================================================================
-     DÉMARRAGE
-     =================================================================== */
+  // lancement
   initNav();
   initButtonLinks();
   initBackToTop();
@@ -485,5 +550,7 @@
   initCarousel();
   initEvents();
   initFaq();
+  initFilieres();
+  initLightbox();
   initContactForm();
 })();

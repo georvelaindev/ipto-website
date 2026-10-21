@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Institut Professionnel et Technologique d'Oyo</title>
-    <meta name="description" content="Filières BTS de l'IPTO à Oyo : génie informatique et réseau, génie électrique et thermique, génie civil et rural, transport et logistique.">
+    <meta name="description" content="Filières BTS de l'IPTO à Oyo : génie civil, génie rural, génie électrique et thermique, administration commerce et gestion, informatique industrielle.">
     <link rel="icon" href="assets/images/logo-ipto.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <!-- ============ NAVIGATION ============ -->
+    <!-- navigation -->
     <header class="navbar">
         <div class="container">
             <a href="index.html" class="logo-Ipto" aria-label="IPTO - Accueil">
@@ -57,124 +57,253 @@
     </header>
 
     <main>
-        <!-- ============ EN-TÊTE ============ -->
+        <!-- en-tête -->
         <section class="page-hero">
             <div class="container">
                 <p class="eyebrow gold">Formations</p>
                 <h1>Construisez votre parcours d'excellence</h1>
-                <p class="lead">Quatre filières BTS professionnalisantes, alignées sur les besoins du marché du travail.</p>
+                <p class="lead">Cinq filières BTS professionnalisantes, alignées sur les besoins du marché du travail.</p>
             </div>
         </section>
 
-        <!-- ============ FILIÈRES ============ -->
-        <section class="section">
-            <div class="container filiere-list">
-                <article class="filiere-row" id="informatique" data-reveal>
-                    <div class="filiere-visual">
+        <!-- filières -->
+        <section class="facts-wrap">
+            <div class="container facts">
+                <div class="fact"><strong>5</strong><span>filières ouvertes</span></div>
+                <div class="fact"><strong>7</strong><span>options</span></div>
+                <div class="fact"><strong>3 ans</strong><span>pour la Licence</span></div>
+                <div class="fact"><strong>Bac</strong><span>requis à l'entrée</span></div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <div class="filter-bar" role="group" aria-label="Filtrer les filières">
+                    <span class="filter-label">Afficher</span>
+                    <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Toutes <b>7</b></button>
+                    <button type="button" class="filter" data-filter="ouverte" aria-pressed="false">Ouvertes <b>5</b></button>
+                    <button type="button" class="filter" data-filter="bientot" aria-pressed="false">Non ouvertes <b>2</b></button>
+                </div>
+                <div class="filieres-grid" data-filieres>
+                <article class="fcard" id="informatique" data-filiere data-statut="ouverte">
+                    <div class="fcard-media">
                         <img src="assets/images/filiere-informatique.png" alt="Technicien réseau dans une salle serveurs" loading="lazy">
-                        <img class="inset" src="assets/images/filiere-reseau.webp" alt="Technicienne réseau devant une baie de brassage" loading="lazy">
+                        <span class="statut ouverte">Ouverte</span>
                     </div>
-                    <div class="filiere-info">
-                        <p class="eyebrow gold">Filière</p>
-                        <h2>Génie Informatique &amp; Réseau</h2>
-                        <p>Formation complète en développement logiciel, administration systèmes et réseaux informatiques.</p>
-                        <div class="meta-row">
-                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
-                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                    <div class="fcard-body">
+                        <h2>Informatique industrielle</h2>
+                        <p class="fcard-desc">Formation en développement logiciel, réseaux et sécurité informatique.</p>
+                        <div class="fcard-options">
+                            <h3>Options</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Génie logiciel</li><li><i class="fa-solid fa-graduation-cap"></i> Réseaux et Sécurité</li></ul>
                         </div>
-                        <div class="courses">
-                            <h3>Cours principaux</h3>
-                            <ul>
-                                <li>Programmation (Python, Java, C++)</li>
-                                <li>Développement Web et Mobile</li>
-                                <li>Administration Systèmes Linux/Windows</li>
-                                <li>Réseaux et Sécurité Informatique</li>
-                                <li>Bases de Données</li>
-                            </ul>
+                        <button type="button" class="fcard-toggle" aria-expanded="false" aria-controls="prog-informatique">
+                            <span>Voir le programme</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="fcard-drawer" id="prog-informatique">
+                            <div>
+                                <div class="drawer-inner">
+                                    <div class="meta-row">
+                                        <span class="meta-chip"><i class="fa-regular fa-clock"></i>Licence · 3 ans</span>
+                                        <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                                    </div>
+                                    <div class="courses">
+                                        <h3>Cours principaux</h3>
+                                        <ul>
+                                    <li>Programmation (Python, Java, C++)</li>
+                                    <li>Développement Web et Mobile</li>
+                                    <li>Administration Systèmes Linux/Windows</li>
+                                    <li>Réseaux et Sécurité Informatique</li>
+                                    <li>Bases de Données</li>
+                                        </ul>
+                                    </div>
+                                    <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
-                <article class="filiere-row reverse" id="electrique" data-reveal>
-                    <div class="filiere-visual">
+                <article class="fcard" id="electrique" data-filiere data-statut="ouverte">
+                    <div class="fcard-media">
                         <img src="assets/images/filiere-electrique.jpg" alt="Technicien électricien en intervention" loading="lazy">
-                        <img class="inset" src="assets/images/visite-centrale-solaire.jpeg" alt="Étudiants en visite d'une centrale solaire" loading="lazy">
+                        <span class="statut ouverte">Ouverte</span>
                     </div>
-                    <div class="filiere-info">
-                        <p class="eyebrow gold">Filière</p>
-                        <h2>Génie Électrique &amp; Thermique</h2>
-                        <p>Formation alliant maîtrise des systèmes électriques et des technologies thermiques.</p>
-                        <div class="meta-row">
-                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
-                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                    <div class="fcard-body">
+                        <h2>Génie électrique et thermique</h2>
+                        <p class="fcard-desc">Formation alliant maîtrise des systèmes électriques et des technologies thermiques.</p>
+                        <div class="fcard-options">
+                            <h3>Options</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Électrotechnique</li><li><i class="fa-solid fa-graduation-cap"></i> Énergie renouvelable</li></ul>
                         </div>
-                        <div class="courses">
-                            <h3>Cours principaux</h3>
-                            <ul>
-                                <li>Électrotechnique et Machines Électriques</li>
-                                <li>Électronique de puissance</li>
-                                <li>Thermodynamique et Transferts Thermiques</li>
-                                <li>Automatisme et Régulation</li>
-                                <li>Énergies Renouvelables et Efficacité Énergétique</li>
-                            </ul>
+                        <button type="button" class="fcard-toggle" aria-expanded="false" aria-controls="prog-electrique">
+                            <span>Voir le programme</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="fcard-drawer" id="prog-electrique">
+                            <div>
+                                <div class="drawer-inner">
+                                    <div class="meta-row">
+                                        <span class="meta-chip"><i class="fa-regular fa-clock"></i>Licence · 3 ans</span>
+                                        <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                                    </div>
+                                    <div class="courses">
+                                        <h3>Cours principaux</h3>
+                                        <ul>
+                                    <li>Électrotechnique et Machines Électriques</li>
+                                    <li>Électronique de puissance</li>
+                                    <li>Thermodynamique et Transferts Thermiques</li>
+                                    <li>Automatisme et Régulation</li>
+                                    <li>Énergies Renouvelables et Efficacité Énergétique</li>
+                                        </ul>
+                                    </div>
+                                    <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
-                <article class="filiere-row" id="civil" data-reveal>
-                    <div class="filiere-visual">
+                <article class="fcard" id="gestion" data-filiere data-statut="ouverte">
+                    <div class="fcard-media noimg">
+                        <i class="fa-solid fa-truck" aria-hidden="true"></i>
+                        <span class="statut ouverte">Ouverte</span>
+                    </div>
+                    <div class="fcard-body">
+                        <h2>Administration, Commerce et Gestion</h2>
+                        <p class="fcard-desc">Formation en gestion des flux, organisation des chaînes d'approvisionnement et maîtrise des systèmes de transport.</p>
+                        <div class="fcard-options">
+                            <h3>Option</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Gestion logistique et transport</li></ul>
+                        </div>
+                        <button type="button" class="fcard-toggle" aria-expanded="false" aria-controls="prog-gestion">
+                            <span>Voir le programme</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="fcard-drawer" id="prog-gestion">
+                            <div>
+                                <div class="drawer-inner">
+                                    <div class="meta-row">
+                                        <span class="meta-chip"><i class="fa-regular fa-clock"></i>Licence · 3 ans</span>
+                                        <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                                    </div>
+                                    <div class="courses">
+                                        <h3>Cours principaux</h3>
+                                        <ul>
+                                    <li>Gestion de la Chaîne Logistique</li>
+                                    <li>Transport Multimodal et Intermodal</li>
+                                    <li>Gestion des Stocks et Douanes</li>
+                                    <li>Systèmes d'Information Logistique</li>
+                                        </ul>
+                                    </div>
+                                    <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="fcard" id="civil" data-filiere data-statut="ouverte">
+                    <div class="fcard-media">
                         <img src="assets/images/filiere-civil.jpg" alt="Technicien sur un chantier de construction" loading="lazy">
-                        <img class="inset" src="assets/images/filiere-rural.jpg" alt="Ingénieurs devant des installations hydrauliques" loading="lazy">
+                        <span class="statut ouverte">Ouverte</span>
                     </div>
-                    <div class="filiere-info">
-                        <p class="eyebrow gold">Filière</p>
-                        <h2>Génie Civil &amp; Rural</h2>
-                        <p>Formation en construction, travaux publics, hydraulique, topographie et aménagement des territoires ruraux et urbains.</p>
-                        <div class="meta-row">
-                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
-                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                    <div class="fcard-body">
+                        <h2>Génie civil</h2>
+                        <p class="fcard-desc">Formation en construction et bâtiment : résistance des matériaux, béton armé, topographie, sols et fondations.</p>
+                        <div class="fcard-options">
+                            <h3>Option</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Bâtiment</li></ul>
                         </div>
-                        <div class="courses">
-                            <h3>Cours principaux</h3>
-                            <ul>
-                                <li>Résistance des Matériaux et Béton Armé</li>
-                                <li>Hydraulique et Assainissement</li>
-                                <li>Topographie, Sols et Fondations</li>
-                                <li>Routes et Travaux Publics</li>
-                            </ul>
+                        <button type="button" class="fcard-toggle" aria-expanded="false" aria-controls="prog-civil">
+                            <span>Voir le programme</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="fcard-drawer" id="prog-civil">
+                            <div>
+                                <div class="drawer-inner">
+                                    <div class="meta-row">
+                                        <span class="meta-chip"><i class="fa-regular fa-clock"></i>Licence · 3 ans</span>
+                                        <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                                    </div>
+                                    <div class="courses">
+                                        <h3>Cours principaux</h3>
+                                        <ul>
+                                    <li>Résistance des Matériaux et Béton Armé</li>
+                                    <li>Topographie, Sols et Fondations</li>
+                                        </ul>
+                                    </div>
+                                    <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="filiere-row reverse" id="transport" data-reveal>
-                    <div class="filiere-visual">
-                        <div class="noimg-visual" aria-hidden="true"><i class="fa-solid fa-truck"></i></div>
-                    </div>
-                    <div class="filiere-info">
-                        <p class="eyebrow gold">Filière</p>
-                        <h2>Transport &amp; Logistique</h2>
-                        <p>Formation complète en gestion des flux, organisation des chaînes d'approvisionnement et maîtrise des systèmes de transport.</p>
-                        <div class="meta-row">
-                            <span class="meta-chip"><i class="fa-regular fa-clock"></i> BTS · 2 ans</span>
-                            <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
-                        </div>
-                        <div class="courses">
-                            <h3>Cours principaux</h3>
-                            <ul>
-                                <li>Gestion de la Chaîne Logistique</li>
-                                <li>Transport Multimodal et Intermodal</li>
-                                <li>Gestion des Stocks et Douanes</li>
-                                <li>Systèmes d'Information Logistique</li>
-                            </ul>
-                        </div>
-                        <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </article>
+                <article class="fcard" id="rural" data-filiere data-statut="ouverte">
+                    <div class="fcard-media">
+                        <img src="assets/images/filiere-rural.jpg" alt="Techniciens devant des installations hydrauliques" loading="lazy">
+                        <span class="statut ouverte">Ouverte</span>
+                    </div>
+                    <div class="fcard-body">
+                        <h2>Génie rural</h2>
+                        <p class="fcard-desc">Formation en aménagement des territoires ruraux : infrastructures, hydraulique et assainissement.</p>
+                        <div class="fcard-options">
+                            <h3>Option</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Infrastructure et assainissement</li></ul>
+                        </div>
+                        <button type="button" class="fcard-toggle" aria-expanded="false" aria-controls="prog-rural">
+                            <span>Voir le programme</span> <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="fcard-drawer" id="prog-rural">
+                            <div>
+                                <div class="drawer-inner">
+                                    <div class="meta-row">
+                                        <span class="meta-chip"><i class="fa-regular fa-clock"></i> Licence · 3 ans</span>
+                                        <span class="meta-chip"><i class="fa-solid fa-user-graduate"></i> Baccalauréat requis</span>
+                                    </div>
+                                    <div class="courses">
+                                        <h3>Cours principaux</h3>
+                                        <ul>
+                                    <li>Hydraulique et Assainissement</li>
+                                    <li>Routes et Travaux Publics</li>
+                                        </ul>
+                                    </div>
+                                    <a href="admission.html#process" class="btn btn-navy btn-sm">Postuler <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="fcard" id="hotellerie" data-filiere data-statut="bientot">
+                    <div class="fcard-media noimg muted">
+                        <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                        <span class="statut bientot">Non ouverte</span>
+                    </div>
+                    <div class="fcard-body">
+                        <h2>Management en Hôtellerie-restauration</h2>
+                        <p class="fcard-desc">Cette filière n'est pas encore ouverte.</p>
+                        <div class="fcard-options">
+                            <h3>Option</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Management d'unité de restauration</li></ul>
+                        </div>
+                        <p class="fcard-soon">Une question sur son ouverture ? <a href="contact.html">Contactez-nous</a>.</p>
+                    </div>
+                </article>
+                <article class="fcard" id="tourisme" data-filiere data-statut="bientot">
+                    <div class="fcard-media noimg muted">
+                        <i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i>
+                        <span class="statut bientot">Non ouverte</span>
+                    </div>
+                    <div class="fcard-body">
+                        <h2>Tourisme, Administration, Commerce et Gestion</h2>
+                        <p class="fcard-desc">Cette filière n'est pas encore ouverte.</p>
+                        <div class="fcard-options">
+                            <h3>Option</h3>
+                            <ul><li><i class="fa-solid fa-graduation-cap"></i> Gestion du tourisme et des loisirs</li></ul>
+                        </div>
+                        <p class="fcard-soon">Une question sur son ouverture ? <a href="contact.html">Contactez-nous</a>.</p>
+                    </div>
+                </article>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- ============ PIED DE PAGE ============ -->
+    <!-- pied de page -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
@@ -200,16 +329,16 @@
             <div>
                 <h4>Coordonnées</h4>
                 <ul class="footer-contact">
-                    <li><i class="fa-solid fa-location-dot"></i><span>Avenue de l'Indépendance, Oyo, République du Congo</span></li>
-                    <li><i class="fa-solid fa-phone"></i><a href="tel:+242069558265">+242 069558265</a></li>
-                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:mibantessageorvelain@gmail.com">mibantessageorvelain@gmail.com</a></li>
+                    <li><i class="fa-solid fa-location-dot"></i><span>Ngouene, departement de la Sangha, République du Congo</span></li>
+                    <li><i class="fa-solid fa-phone"></i><a href="tel:+242069558265">+242 06 644 8039</a></li>
+                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:mibantessageorvelain@gmail.com">iptouniversity@gmail.com</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Suivez-nous</h4>
                 <div class="socials">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://whatsapp.com/channel/0029VbBiHotBKfI76L6F4o2q" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/groups/4488787174683348/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VbBiHotBKfi76l6F4o2q" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>

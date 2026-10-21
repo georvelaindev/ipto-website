@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <!-- ============ NAVIGATION ============ -->
+    <!-- navigation -->
     <header class="navbar">
         <div class="container">
             <a href="index.html" class="logo-Ipto" aria-label="IPTO - Accueil">
@@ -57,7 +57,7 @@
     </header>
 
     <main>
-        <!-- ============ EN-TÊTE ============ -->
+        <!-- en-tête -->
         <section class="page-hero">
             <div class="container">
                 <p class="eyebrow gold">Admissions</p>
@@ -66,7 +66,7 @@
             </div>
         </section>
 
-        <!-- ============ PROCESSUS ============ -->
+        <!-- processus -->
         <section class="section-tight" id="process" style="padding-top:5rem">
             <div class="container">
                 <div class="steps-grid">
@@ -94,7 +94,7 @@
             </div>
         </section>
 
-        <!-- ============ CALENDRIER ============ -->
+        <!-- calendrier -->
         <section class="section-tight" id="dates" style="padding-top:1rem">
             <div class="container">
                 <div class="section-head" data-reveal>
@@ -126,7 +126,7 @@
             </div>
         </section>
 
-        <!-- ============ CONDITIONS & DOCUMENTS ============ -->
+        <!-- conditions & documents -->
         <section class="section-tight" id="conditions" style="padding-top:1rem">
             <div class="container">
                 <div class="info-grid">
@@ -157,38 +157,61 @@
             </div>
         </section>
 
-        <!-- ============ FRAIS ============ -->
-        <section class="section-tight" id="frais" style="padding-top:1rem">
+        <!-- frais -->
+        <section class="tarifs" id="frais">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <p class="eyebrow">Tarifs</p>
+                <div class="section-head center" data-reveal>
+                    <p class="eyebrow gold">Tarifs</p>
                     <h2 class="section-title">Frais de formation</h2>
+                    <p class="lead-dark">Les frais à prévoir pour s'inscrire à l'IPTO.</p>
                 </div>
-                <div class="fees-grid">
-                    <div class="fee-card" data-reveal>
-                        <i class="fa-solid fa-pen-to-square"></i>
+                <div class="tarifs-grid">
+                    <article class="tarif" data-reveal>
+                        <span class="tarif-icon"><i class="fa-solid fa-pen-to-square"></i></span>
                         <h3>Frais d'inscription</h3>
-                        <div class="price">10 000 <small>FCFA</small></div>
-                        <p>Paiement unique</p>
-                    </div>
-                    <div class="fee-card featured" data-reveal>
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <p class="tarif-prix">10 000 <small>FCFA</small></p>
+                        <p class="tarif-note"><i class="fa-solid fa-check"></i> Paiement unique</p>
+                    </article>
+                    <article class="tarif tarif-vedette" data-reveal>
+                        <span class="tarif-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         <h3>Scolarité annuelle</h3>
-                        <div class="price">36 000 <small>FCFA</small></div>
-                        <p>Payable en 3 tranches</p>
-                    </div>
-                    <div class="fee-card" data-reveal>
-                        <i class="fa-solid fa-folder"></i>
+                        <p class="tarif-prix">36 000 <small>FCFA</small></p>
+                        <p class="tarif-note"><span class="tranches" aria-hidden="true"><b></b><b></b><b></b></span> Payable en 3 tranches</p>
+                    </article>
+                    <article class="tarif" data-reveal>
+                        <span class="tarif-icon"><i class="fa-solid fa-folder-open"></i></span>
                         <h3>Frais de dossier</h3>
-                        <div class="price">5 000 <small>FCFA</small></div>
-                        <p>Non remboursable</p>
+                        <p class="tarif-prix">5 000 <small>FCFA</small></p>
+                        <p class="tarif-note"><i class="fa-solid fa-circle-info"></i> Non remboursable</p>
+                    </article>
+                </div>
+                <div class="tarifs-total" data-reveal>
+                    <div>
+                        <p class="total-label">Total estimé la première année</p>
+                        <p class="total-detail">Inscription + scolarité annuelle + frais de dossier</p>
+                    </div>
+                    <p class="total-prix">51 000 <small>FCFA</small></p>
+                </div>
+                <div class="avantages">
+                    <div class="avantage" data-reveal>
+                        <span class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                        <div>
+                            <h3>Facilités de paiement</h3>
+                            <p>Des facilités de paiement sont disponibles pour les étudiants.</p>
+                        </div>
+                    </div>
+                    <div class="avantage" data-reveal>
+                        <span class="icon"><i class="fa-solid fa-award"></i></span>
+                        <div>
+                            <h3>Bourses d'excellence</h3>
+                            <p>Elles sont accordées aux meilleurs candidats selon leur mérite académique.</p>
+                        </div>
                     </div>
                 </div>
-                <p class="fee-note" data-reveal><strong>Note :</strong> des facilités de paiement sont disponibles pour les étudiants. Les bourses d'excellence sont accordées aux meilleurs candidats selon leur mérite académique.</p>
             </div>
-        </section>
+        </section><br><br>
 
-        <!-- ============ APPEL À L'ACTION ============ -->
+        <!-- appel à l'action -->
         <section class="cta-section">
             <div class="container">
                 <div class="cta" data-reveal>
@@ -204,7 +227,7 @@
         </section>
     </main>
 
-    <!-- ============ PIED DE PAGE ============ -->
+    <!-- pied de page -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
@@ -230,16 +253,16 @@
             <div>
                 <h4>Coordonnées</h4>
                 <ul class="footer-contact">
-                    <li><i class="fa-solid fa-location-dot"></i><span>Avenue de l'Indépendance, Oyo, République du Congo</span></li>
-                    <li><i class="fa-solid fa-phone"></i><a href="tel:+242069558265">+242 069558265</a></li>
-                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:mibantessageorvelain@gmail.com">mibantessageorvelain@gmail.com</a></li>
+                    <li><i class="fa-solid fa-location-dot"></i><span>Ngouene, departement de la Sangha, République du Congo</span></li>
+                    <li><i class="fa-solid fa-phone"></i><a href="tel:+242069558265">+242 06 644 8039</a></li>
+                    <li><i class="fa-solid fa-envelope"></i><a href="mailto:mibantessageorvelain@gmail.com">iptouniversity@gmail.com</li>
                 </ul>
             </div>
             <div>
                 <h4>Suivez-nous</h4>
                 <div class="socials">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://whatsapp.com/channel/0029VbBiHotBKfI76L6F4o2q" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/groups/4488787174683348/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VbBiHotBKfi76l6F4o2q" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
