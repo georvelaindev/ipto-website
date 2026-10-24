@@ -32,10 +32,9 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 
 - Design responsive (ordinateur, tablette, mobile) avec menu mobile accessible
 - Carrousel de témoignages (défilement automatique, points cliquables, balayage tactile, pause au survol)
-- Partenaires en défilement continu
+- Section partenaires (texte de présentation et logos)
 - Compteurs animés et apparition progressive des blocs au défilement
 - Page Formations : filtres (toutes, ouvertes, non ouvertes), programme qui se déploie sur chaque carte, lien direct vers une filière (`formation.html#civil`)
-- Statut automatique **« À venir » / « Terminé »** des événements et des dates d'admission, calculé selon la date du jour
 - Formulaire de contact avec validation (nom, e-mail, téléphone congolais ou international), envoi sans rechargement de page et protection anti-spam
 - FAQ en accordéon
 - Affiches et photos agrandissables au clic (galerie de l'accueil, affiche de la conférence)
@@ -73,17 +72,23 @@ ipto-website/
 └── README.md
 ```
 
+## Organisation du CSS
+
+Tout le style est dans `assets/css/ipto.css`, écrit avec une propriété par ligne et une indentation de 4 espaces. Le sommaire en haut du fichier liste les sections dans l'ordre : variables et base, composants communs, accueil, pages internes, puis les règles « responsive » (tablette et mobile) regroupées à la fin par taille d'écran.
+
 ## Couleurs
 
-Les couleurs sont définies une seule fois, dans les variables `:root` de `assets/css/ipto.css`.
+Le design utilise uniquement des aplats de couleur, sans dégradés. Les couleurs sont définies une seule fois, dans les variables `:root` de `assets/css/ipto.css`.
 
 | Rôle | Valeur |
 |------|--------|
-| Marine (fonds sombres, titres) | `#0a2352` |
-| Bleu (accents, dégradés) | `#0e5aae` |
+| Bleu frais (bandeaux, chiffres clés, cartes) | `#2563eb` |
+| Bleu vif (boutons, icônes) | `#1d4ed8` |
+| Bleu foncé (survol, liens) | `#1e3fa8` |
+| Marine (titres, pied de page) | `#10265a` |
 | Or (boutons, mises en avant) | `#f2b327` |
 | Or foncé (texte doré sur fond clair) | `#8a5f00` |
-| Fond de page | `#f6f8fc` |
+| Fond de page | `#f4f8ff` |
 | Texte | `#0e1b3a` (gris secondaire `#5a6a85`) |
 
 Tous les textes respectent un contraste d'au moins 4,5:1 avec leur fond (norme WCAG AA).
@@ -116,11 +121,11 @@ Puis ouvrez <http://localhost:8000>.
 | Je veux modifier… | Où |
 |-------------------|----|
 | Les couleurs, polices, arrondis | Variables `:root` en haut de `assets/css/ipto.css` |
-| Les événements (titre, date, lieu) | `actualite.html` et la section « Actualités » de `index.html`. La date se règle avec `data-date="AAAA-MM-JJ"` : le statut « À venir » / « Terminé » se met à jour tout seul |
-| Le calendrier d'admission | Section `#dates` de `admission.html` (mêmes attributs `data-date`) |
+| Les actualités et événements | `actualite.html` et la section « Actualités » de `index.html`. Chaque carte contient un `<p class="news-statut">` vide : écris-y le statut (« À venir », « Terminé »…) ou laisse-le vide pour ne rien afficher. Ajoute la classe `a-venir` pour le fond vert : `<p class="news-statut a-venir">À venir</p>` |
+| Le calendrier d'admission | Section `#dates` de `admission.html` (texte simple, à modifier à la main) |
 | Les frais, conditions, documents | `admission.html` |
 | Les témoignages | Section `#temoignages` de `index.html` (un bloc `<figure class="quote t-slide">` par témoignage) |
-| Les partenaires | Section `#partenaires` de `index.html`. La liste est écrite **deux fois** (le second groupe est une copie pour que le défilement boucle sans coupure) : modifiez les deux |
+| Les partenaires | Section `#partenaires` de `index.html` : texte de présentation et logos dans `assets/images/partenaires/` (une ligne `<li><img …></li>` par logo) |
 | Les filières et leurs cours | `formation.html` |
 | Les coordonnées et horaires | `contact.html` et le pied de page de chaque page |
 | Le destinataire du formulaire de contact | Attribut `action` du formulaire dans `contact.html` (lien Formspree) |
@@ -134,7 +139,7 @@ Puis ouvrez <http://localhost:8000>.
 - [ ] Ajouter le vrai **formulaire d'inscription** dans `assets/docs/formulaire-ipto.pdf` (le lien « Télécharger le formulaire » de la page Admissions pointe vers ce fichier)
 - [ ] Mettre à jour les **dates** d'admission (calendrier 2026-2027 déjà passé) et les **événements**
 - [ ] Remplacer les **témoignages** de MAYANDZA Dan Marcus, KAYA Mercy et GANGANZAMBI Noble par leurs vraies paroles, avec leur accord (textes provisoires, repérés par un commentaire `À REMPLACER` dans `index.html`)
-- [ ] Vérifier la liste des **partenaires**
+- [ ] Remplacer les 3 logos des partenaires (République du Congo, SNPC, CEO), actuellement découpés d'une capture d'écran, par les fichiers officiels en haute définition
 - [ ] Remplacer l'adresse e-mail de contact par l'adresse officielle de l'école (pied de page et page Contact)
 - [ ] Renseigner les vrais liens des **réseaux sociaux** (Facebook, Instagram) dans le pied de page
 - [ ] Ajouter une photo pour la filière **Administration, Commerce et Gestion** (la carte affiche une illustration en attendant)

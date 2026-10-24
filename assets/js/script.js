@@ -359,40 +359,6 @@
     });
   }
 
-  // événements : badge « terminé » ou « à venir » selon la date
-  function initEvents() {
-    const cards = $$('.souvs-evens, [data-event]');
-    if (!cards.length) return;
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    let upcoming = 0;
-
-    cards.forEach((card) => {
-      const dateEl = $('[data-date]', card);
-      if (!dateEl) return;
-      const [y, m, d] = dateEl.dataset.date.split('-').map(Number);
-      const isPast = new Date(y, m - 1, d) < today;
-
-      card.classList.add(isPast ? 'is-past' : 'is-upcoming');
-      const badge = document.createElement('span');
-      badge.className = 'event-badge';
-      badge.textContent = isPast ? 'Terminé' : 'À venir';
-      card.prepend(badge);
-      if (!isPast) upcoming += 1;
-    });
-
-    const title = $('.evens-container > p');
-    if (!title) return;
-    title.textContent = upcoming ? 'Événements à venir' : 'Événements récents';
-    if (!upcoming) {
-      const note = document.createElement('p');
-      note.className = 'events-empty';
-      note.textContent = 'Aucun événement à venir pour le moment. Revenez bientôt !';
-      title.after(note);
-    }
-  }
-
   // questions fréquentes (page contact)
   function initFaq() {
     const items = $$('.question-box .questions');
@@ -548,7 +514,6 @@
   initCounters();
   initSoon();
   initCarousel();
-  initEvents();
   initFaq();
   initFilieres();
   initLightbox();
