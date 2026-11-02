@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connexion à l'espace étudiant de l'Institut Professionnel et Technologique d'Oyo.">
+    <title>Connexion étudiant | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css?v=20261101-2">
+    <script type="module" src="../assets/js/student/login.js?v=20261101-2"></script>
+</head>
+<body class="student-page login-page">
+    <main class="login-layout">
+        <section class="login-intro" aria-labelledby="institution-name">
+            <a class="student-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="Logo de l'IPTO">
+                <span>
+                    <strong>IPTO</strong>
+                    <small>Institut Professionnel et Technologique d'Oyo</small>
+                </span>
+            </a>
+            <div class="login-intro-copy">
+                <p class="student-eyebrow">Portail étudiant</p>
+                <h1 id="institution-name">Votre parcours, au même endroit.</h1>
+                <p>Retrouvez vos informations académiques, vos ressources et les actualités de l'institut dans votre espace personnel.</p>
+            </div>
+            <a class="back-to-site" href="../index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour au site de l'IPTO</a>
+        </section>
+
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-card">
+                <p class="student-eyebrow">Espace étudiant</p>
+                <h2 id="login-title">Bon retour parmi nous</h2>
+                <p class="login-description">Connectez-vous avec l'adresse e-mail associée à votre compte étudiant.</p>
+                <div id="login-feedback" class="student-feedback" role="status" aria-live="polite" hidden></div>
+
+                <form id="login-form" class="student-form">
+                    <label for="email">Adresse e-mail</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <input id="email" name="email" type="email" autocomplete="username" inputmode="email" placeholder="nom@exemple.com" required>
+                    </div>
+
+                    <label for="password">Mot de passe</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Votre mot de passe" required>
+                        <button class="password-toggle" id="toggle-password" type="button" aria-label="Afficher le mot de passe" aria-pressed="false">
+                            <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <button class="student-button student-button-primary login-submit" id="login-submit" type="submit">
+                        <span class="button-label">Se connecter</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <p class="login-help">Pas encore de compte ? <a href="register.html">Créer un compte étudiant</a>.</p>
+                <p class="login-help">Besoin d'aide pour accéder à votre compte ? <a href="../contact.html">Contactez l'administration</a>.</p>
+                <p class="login-security"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Authentification prévue avec Supabase Auth</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

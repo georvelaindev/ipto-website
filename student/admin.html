@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administration sécurisée du portail IPTO.">
+    <title>Administration | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+    <script type="module" src="../assets/js/student/admin.js?v=20261101-7"></script>
+</head>
+<body class="student-page dashboard-page">
+    <div id="admin-loading" class="dashboard-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Vérification des autorisations…</span>
+    </div>
+
+    <div class="dashboard-shell" id="admin-shell" hidden>
+        <aside class="student-sidebar" id="admin-sidebar" aria-label="Navigation de l'administration">
+            <a class="student-brand sidebar-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="">
+                <span><strong>IPTO</strong><small>Administration</small></span>
+            </a>
+            <p class="sidebar-section-label">GESTION DE L'INSTITUT</p>
+            <nav class="student-menu">
+                <a class="sidebar-link" href="admin.html" data-view="overview"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i><span>Vue d'ensemble</span></a>
+                <a class="sidebar-link" href="admin.html?view=students" data-view="students"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><span>Étudiants</span></a>
+                <a class="sidebar-link" href="admin.html?view=enrollments" data-view="enrollments"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><span>Inscriptions</span></a>
+                <a class="sidebar-link" href="admin.html?view=catalog" data-view="catalog"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Catalogue académique</span></a>
+                <a class="sidebar-link" href="admin.html?view=announcements" data-view="announcements"><i class="fa-regular fa-bell" aria-hidden="true"></i><span>Annonces</span></a>
+                <a class="sidebar-link" href="admin.html?view=internships" data-view="internships"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Stages</span></a>
+                <a class="sidebar-link" href="admin.html?view=documents" data-view="documents"><i class="fa-regular fa-folder-open" aria-hidden="true"></i><span>Documents</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-site-link" href="../index.html"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Site de l'IPTO</a>
+                <button class="sidebar-link logout-button" id="admin-logout" type="button"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Déconnexion</span></button>
+            </div>
+        </aside>
+
+        <button class="sidebar-overlay" id="admin-overlay" type="button" aria-label="Fermer le menu"></button>
+
+        <div class="dashboard-content">
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-toggle" id="admin-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="admin-sidebar" aria-expanded="false">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="topbar-title">
+                    <p class="student-eyebrow">Espace sécurisé</p>
+                    <h1 id="admin-title">Administration</h1>
+                </div>
+                <div class="account-chip">
+                    <span class="account-avatar" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span>
+                    <span class="account-details"><small>Administrateur connecté</small><strong id="admin-email"></strong></span>
+                </div>
+            </header>
+
+            <main class="dashboard-main module-main" id="admin-content" tabindex="-1">
+                <div id="admin-alert" class="student-feedback" role="status" aria-live="polite" hidden></div>
+                <div id="admin-view"></div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

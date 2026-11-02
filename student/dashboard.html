@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tableau de bord de l'espace étudiant IPTO.">
+    <title>Mon espace étudiant | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+    <script type="module" src="../assets/js/student/dashboard.js"></script>
+</head>
+<body class="student-page dashboard-page">
+    <div id="dashboard-loading" class="dashboard-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Vérification de votre session…</span>
+    </div>
+
+    <div class="dashboard-shell" id="dashboard-shell" hidden>
+        <aside class="student-sidebar" id="student-sidebar" aria-label="Navigation de l'espace étudiant">
+            <a class="student-brand sidebar-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="">
+                <span>
+                    <strong>IPTO</strong>
+                    <small>Espace étudiant</small>
+                </span>
+            </a>
+
+            <p class="sidebar-section-label">MENU PRINCIPAL</p>
+            <nav class="student-menu">
+                <a class="sidebar-link active" href="dashboard.html" aria-current="page"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Tableau de bord</span></a>
+                <a class="sidebar-link" href="modules.html?view=profile"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Mon profil</span></a>
+                <a class="sidebar-link" href="modules.html?view=courses"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Mes cours</span></a>
+                <a class="sidebar-link" href="modules.html?view=grades"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span>Mes notes</span></a>
+                <a class="sidebar-link" href="modules.html?view=schedule"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i><span>Emploi du temps</span></a>
+                <a class="sidebar-link" href="modules.html?view=documents"><i class="fa-regular fa-folder-open" aria-hidden="true"></i><span>Documents</span></a>
+                <a class="sidebar-link" href="modules.html?view=announcements"><i class="fa-regular fa-bell" aria-hidden="true"></i><span>Annonces</span></a>
+                <a class="sidebar-link" href="modules.html?view=internships"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Stages &amp; opportunités</span></a>
+                <span class="sidebar-link is-disabled" aria-disabled="true"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span>Paramètres</span><small>Bientôt</small></span>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a class="sidebar-site-link" href="../index.html"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Site de l'IPTO</a>
+                <button class="sidebar-link logout-button" id="logout-button" type="button"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Déconnexion</span></button>
+            </div>
+        </aside>
+
+        <button class="sidebar-overlay" id="sidebar-overlay" type="button" aria-label="Fermer le menu"></button>
+
+        <div class="dashboard-content">
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="student-sidebar" aria-expanded="false">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="topbar-title">
+                    <p class="student-eyebrow">Espace étudiant</p>
+                    <h1>Tableau de bord</h1>
+                </div>
+                <div class="account-chip">
+                    <span class="account-avatar" aria-hidden="true"><i class="fa-regular fa-user"></i></span>
+                    <span class="account-details"><small>Compte connecté</small><strong id="account-email"></strong></span>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <div id="dashboard-alert" class="student-feedback" role="alert" aria-live="assertive" hidden></div>
+                <section class="welcome-card" aria-labelledby="welcome-title">
+                    <div>
+                        <p class="student-eyebrow">Bienvenue à l'IPTO</p>
+                        <h2 id="welcome-title">Votre espace étudiant</h2>
+                        <p>Retrouvez ici les informations clés liées à votre compte et à votre activité à l'institut.</p>
+                    </div>
+                    <span class="welcome-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+                </section>
+
+                <section class="dashboard-section" aria-labelledby="overview-title">
+                    <div class="dashboard-section-heading">
+                        <div>
+                            <p class="student-eyebrow">En un coup d'œil</p>
+                            <h2 id="overview-title">Mon aperçu</h2>
+                        </div>
+                    </div>
+                    <div class="overview-grid">
+                        <article class="overview-card">
+                            <span class="overview-icon blue"><i class="fa-regular fa-id-card" aria-hidden="true"></i></span>
+                            <div><p>Matricule</p><strong id="student-matricule">Chargement…</strong></div>
+                        </article>
+                        <article class="overview-card">
+                            <span class="overview-icon gold"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+                            <div><p>Filière et niveau</p><strong id="student-program-level">Chargement…</strong></div>
+                        </article>
+                        <article class="overview-card">
+                            <span class="overview-icon violet"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+                            <div><p>Dernière moyenne</p><strong id="student-average">Règles de calcul à définir</strong></div>
+                        </article>
+                        <article class="overview-card">
+                            <span class="overview-icon blue"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                            <div><p>Cours associés</p><strong id="student-course-count">Chargement…</strong></div>
+                        </article>
+                        <article class="overview-card">
+                            <span class="overview-icon green"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></span>
+                            <div><p>Prochain cours</p><strong id="student-next-course">Chargement…</strong></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="dashboard-section dashboard-lower-grid" aria-label="Actualités et ressources">
+                    <article class="dashboard-card">
+                        <div class="dashboard-section-heading">
+                            <div><p class="student-eyebrow">À suivre</p><h2>Annonces récentes</h2></div>
+                            <i class="fa-regular fa-bell heading-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="recent-list" id="recent-announcements"><p class="pending-message">Chargement des annonces…</p></div>
+                    </article>
+                    <article class="dashboard-card">
+                        <div class="dashboard-section-heading">
+                            <div><p class="student-eyebrow">Bibliothèque</p><h2>Documents récents</h2></div>
+                            <i class="fa-regular fa-folder-open heading-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="recent-list" id="recent-documents"><p class="pending-message">Chargement des documents…</p></div>
+                    </article>
+                </section>
+                <p class="dashboard-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Aucun résultat ni renseignement académique fictif n'est affiché dans cette version.</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

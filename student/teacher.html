@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Espace enseignant IPTO pour les cours, les notes et les horaires.">
+    <title>Espace enseignant | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+    <script type="module" src="../assets/js/student/teacher.js"></script>
+</head>
+<body class="student-page dashboard-page">
+    <div id="teacher-loading" class="dashboard-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Vérification des autorisations…</span>
+    </div>
+
+    <div class="dashboard-shell" id="teacher-shell" hidden>
+        <aside class="student-sidebar" id="teacher-sidebar" aria-label="Navigation de l’espace enseignant">
+            <a class="student-brand sidebar-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="">
+                <span><strong>IPTO</strong><small>Espace enseignant</small></span>
+            </a>
+            <p class="sidebar-section-label">MES ACTIVITÉS</p>
+            <nav class="student-menu">
+                <a class="sidebar-link" href="teacher.html" data-view="overview"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Vue d’ensemble</span></a>
+                <a class="sidebar-link" href="teacher.html?view=courses" data-view="courses"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Mes cours</span></a>
+                <a class="sidebar-link" href="teacher.html?view=grades" data-view="grades"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span>Notes</span></a>
+                <a class="sidebar-link" href="teacher.html?view=schedule" data-view="schedule"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i><span>Emploi du temps</span></a>
+                <a class="sidebar-link" href="teacher.html?view=documents" data-view="documents"><i class="fa-regular fa-folder-open" aria-hidden="true"></i><span>Documents</span></a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-site-link" href="../index.html"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Site de l'IPTO</a>
+                <button class="sidebar-link logout-button" id="teacher-logout" type="button"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Déconnexion</span></button>
+            </div>
+        </aside>
+
+        <button class="sidebar-overlay" id="teacher-overlay" type="button" aria-label="Fermer le menu"></button>
+
+        <div class="dashboard-content">
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-toggle" id="teacher-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="teacher-sidebar" aria-expanded="false">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="topbar-title">
+                    <p class="student-eyebrow">Espace enseignant</p>
+                    <h1 id="teacher-title">Chargement…</h1>
+                </div>
+                <div class="account-chip">
+                    <span class="account-avatar" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></span>
+                    <span class="account-details"><small>Compte connecté</small><strong id="teacher-email"></strong></span>
+                </div>
+            </header>
+
+            <main class="dashboard-main module-main" id="teacher-content" tabindex="-1">
+                <div id="teacher-alert" class="student-feedback" role="status" aria-live="polite" hidden></div>
+                <div id="teacher-view"></div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

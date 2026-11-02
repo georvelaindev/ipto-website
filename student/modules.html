@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consultez vos informations et ressources étudiantes IPTO.">
+    <title>Modules étudiants | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css">
+    <script type="module" src="../assets/js/student/modules.js"></script>
+</head>
+<body class="student-page dashboard-page">
+    <div id="module-loading" class="dashboard-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Vérification de votre session…</span>
+    </div>
+
+    <div class="dashboard-shell" id="module-shell" hidden>
+        <aside class="student-sidebar" id="student-sidebar" aria-label="Navigation de l'espace étudiant">
+            <a class="student-brand sidebar-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="">
+                <span><strong>IPTO</strong><small>Espace étudiant</small></span>
+            </a>
+            <p class="sidebar-section-label">MENU PRINCIPAL</p>
+            <nav class="student-menu">
+                <a class="sidebar-link" href="dashboard.html"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Tableau de bord</span></a>
+                <a class="sidebar-link" href="modules.html?view=profile" data-view="profile"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Mon profil</span></a>
+                <a class="sidebar-link" href="modules.html?view=courses" data-view="courses"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Mes cours</span></a>
+                <a class="sidebar-link" href="modules.html?view=grades" data-view="grades"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span>Mes notes</span></a>
+                <a class="sidebar-link" href="modules.html?view=schedule" data-view="schedule"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i><span>Emploi du temps</span></a>
+                <a class="sidebar-link" href="modules.html?view=documents" data-view="documents"><i class="fa-regular fa-folder-open" aria-hidden="true"></i><span>Documents</span></a>
+                <a class="sidebar-link" href="modules.html?view=announcements" data-view="announcements"><i class="fa-regular fa-bell" aria-hidden="true"></i><span>Annonces</span></a>
+                <a class="sidebar-link" href="modules.html?view=internships" data-view="internships"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><span>Stages &amp; opportunités</span></a>
+                <span class="sidebar-link is-disabled" aria-disabled="true"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span>Paramètres</span><small>Bientôt</small></span>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-site-link" href="../index.html"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Site de l'IPTO</a>
+                <button class="sidebar-link logout-button" id="logout-button" type="button"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Déconnexion</span></button>
+            </div>
+        </aside>
+
+        <button class="sidebar-overlay" id="sidebar-overlay" type="button" aria-label="Fermer le menu"></button>
+
+        <div class="dashboard-content">
+            <header class="dashboard-topbar">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="student-sidebar" aria-expanded="false">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="topbar-title">
+                    <p class="student-eyebrow">Espace étudiant</p>
+                    <h1 id="module-title">Chargement…</h1>
+                </div>
+                <div class="account-chip">
+                    <span class="account-avatar" aria-hidden="true"><i class="fa-regular fa-user"></i></span>
+                    <span class="account-details"><small>Compte connecté</small><strong id="account-email"></strong></span>
+                </div>
+            </header>
+
+            <main class="dashboard-main module-main" id="module-content" tabindex="-1">
+                <div id="module-alert" class="student-feedback" role="status" aria-live="polite" hidden></div>
+                <div id="module-view"></div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

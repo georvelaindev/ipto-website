@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créer un compte étudiant IPTO depuis le site de l'institut.">
+    <title>Créer mon compte étudiant | IPTO</title>
+    <link rel="icon" href="../assets/images/logo-ipto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/student.css?v=20261101-2">
+    <script type="module" src="../assets/js/student/register.js"></script>
+</head>
+<body class="student-page login-page">
+    <main class="login-layout">
+        <section class="login-intro" aria-labelledby="institution-name">
+            <a class="student-brand" href="../index.html">
+                <img src="../assets/images/logo-ipto.jpg" alt="Logo de l'IPTO">
+                <span><strong>IPTO</strong><small>Institut Professionnel et Technologique d'Oyo</small></span>
+            </a>
+            <div class="login-intro-copy">
+                <p class="student-eyebrow">Portail étudiant</p>
+                <h1 id="institution-name">Créez votre espace étudiant.</h1>
+                <p>Créez votre compte étudiant directement depuis le site de l’IPTO.</p>
+            </div>
+            <a class="back-to-site" href="../index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour au site de l'IPTO</a>
+        </section>
+
+        <section class="login-panel" aria-labelledby="register-title">
+            <div class="login-card">
+                <p class="student-eyebrow">Créer un compte</p>
+                <h2 id="register-title">Inscription étudiant</h2>
+                <p class="login-description">Renseignez vos informations et confirmez votre adresse e-mail pour activer votre espace étudiant.</p>
+                <div id="register-feedback" class="student-feedback" role="status" aria-live="polite" hidden></div>
+
+                <form id="register-form" class="student-form">
+                    <label for="first-name">Prénom</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <input id="first-name" name="first-name" type="text" autocomplete="given-name" maxlength="100" required>
+                    </div>
+
+                    <label for="last-name">Nom</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <input id="last-name" name="last-name" type="text" autocomplete="family-name" maxlength="100" required>
+                    </div>
+
+                    <label for="email">Adresse e-mail</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nom@exemple.com" required>
+                    </div>
+
+                    <label for="matricule">Matricule étudiant</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+                        <input id="matricule" name="matricule" type="text" autocomplete="off" maxlength="64" required>
+                    </div>
+
+                    <label for="phone">Téléphone (facultatif)</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="32">
+                    </div>
+
+                    <label for="password">Créer un mot de passe</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="8 caractères minimum" required>
+                    </div>
+
+                    <label for="password-confirm">Confirmer le mot de passe</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <input id="password-confirm" name="password-confirm" type="password" autocomplete="new-password" minlength="8" required>
+                    </div>
+
+                    <button class="student-button student-button-primary login-submit" id="register-submit" type="submit">
+                        <span class="button-label">Créer mon compte</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <p class="login-help">Vous avez déjà un compte ? <a href="login.html">Se connecter</a>.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

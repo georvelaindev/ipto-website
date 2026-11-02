@@ -16,6 +16,12 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 | Admissions | `admission.html` | Processus, calendrier, conditions, documents, frais |
 | Actualités | `actualite.html` | Événements de l'institut |
 | Contact | `contact.html` | Coordonnées, formulaire de contact, FAQ |
+| Connexion étudiant | `student/login.html` | Connexion via Supabase Auth |
+| Inscription étudiant | `student/register.html` | Création d’un compte pour un étudiant autorisé |
+| Validation étudiant | `student/complete-registration.html` | Vérification du matricule après confirmation de l’e-mail |
+| Tableau de bord étudiant | `student/dashboard.html` | Profil, cours, prochain cours, annonces et documents |
+| Administration | `student/admin.html` | Dossiers, inscriptions, référentiels, annonces, stages et documents |
+| Espace enseignant | `student/teacher.html` | Cours attribués, notes, emploi du temps et documents |
 
 <details>
 <summary>Voir les captures des autres pages</summary>
@@ -40,6 +46,9 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 - Affiches et photos agrandissables au clic (galerie de l'accueil, affiche de la conférence)
 - Bouton « Retour en haut » et ancres qui tiennent compte de la barre de navigation
 - Respect de `prefers-reduced-motion` et navigation au clavier
+- Portail étudiant responsive avec authentification Supabase Auth (nécessite la configuration du projet)
+- Administration protégée par le rôle Supabase `admin` : dossiers et rôles, inscriptions, catalogue et contenus
+- Espace enseignant protégé par le rôle `teacher`, limité aux cours attribués
 
 ## Technologies
 
@@ -48,6 +57,33 @@ Site statique en **HTML, CSS et JavaScript** : aucune installation, aucune dépe
 - [Google Fonts](https://fonts.google.com/) : Playfair Display (titres) et Inter (texte)
 - [Formspree](https://formspree.io/) pour l'envoi du formulaire de contact
 - Google Analytics (balise `gtag.js`)
+- API JavaScript officielle Supabase (`@supabase/supabase-js`) pour l'espace étudiant
+
+## Espace étudiant
+
+Le portail comprend la connexion, l’inscription et le tableau de bord (`student/`), ainsi que des modules pour le profil, les cours, les notes publiées, l'emploi du temps, les documents, les annonces et les offres de stage. L’espace d’administration vérifie le rôle `admin` et permet de gérer les profils et rôles existants, les inscriptions, le catalogue académique, les annonces, les offres de stage et les documents privés. L’espace enseignant vérifie le rôle `teacher` et permet de gérer les notes et les séances de ses cours ainsi que les documents pédagogiques associés.
+
+Chaque étudiant crée son compte depuis `student/register.html` en saisissant son nom, son adresse e-mail, son matricule et un mot de passe. Après confirmation de l’adresse e-mail, le compte reçoit automatiquement le rôle étudiant. Le matricule doit être unique ; aucune liste préalable n’est requise. Les comptes Auth existants peuvent toujours être rattachés manuellement à partir de leur UUID.
+
+Exécutez les migrations dans l’ordre dans **Supabase → SQL Editor**. La migration `20261101040000_student_open_self_registration.sql` active l’inscription publique après confirmation de l’e-mail ; elle est à appliquer après `20261101030000_student_self_registration.sql`. Activez le fournisseur **Email** et la confirmation de l’adresse dans **Authentication → Sign In / Providers → Email**. Ajoutez `http://localhost:8765/student/complete-registration.html` et `http://127.0.0.1:8765/student/complete-registration.html` dans **Authentication → URL Configuration → Redirect URLs** pour les tests locaux. En production, ajoutez l’URL HTTPS publique correspondante.
+
+Le fournisseur e-mail intégré à Supabase convient aux essais, mais limite l’envoi à un faible débit. Pour permettre à une grande cohorte de confirmer rapidement son adresse, configurez un SMTP personnalisé dans Supabase Auth.
+
+L’URL du projet et la clé publishable sont configurées dans `assets/js/student/supabase-config.js`. Ces valeurs sont visibles dans le navigateur ; n’y placez jamais une clé `secret` ou `service_role`.
+
+Le portail utilise des modules JavaScript et doit être ouvert depuis un serveur HTTP local (voir « Lancer le site en local »), pas directement depuis un chemin `file://`. Les migrations SQL doivent être appliquées dans l'ordre avec Supabase CLI ou SQL Editor. Avant toute mise en production, vérifiez les politiques RLS, Storage, confirmation par e-mail et URL de redirection dans le projet Supabase.
+
+Le bucket `student-documents` est privé. Les fichiers de cours doivent être rangés sous un dossier dont le nom est l'identifiant UUID du cours ; les documents généraux sont réservés aux administrateurs. Les limites de taille et les types autorisés dépendent encore des réglages Storage du projet Supabase.
+
+Pour créer le premier administrateur, créez d'abord son compte depuis le tableau de bord Supabase Auth, puis exécutez cette requête dans SQL Editor après les migrations. Remplacez le texte par l'UUID réel du compte ; ne placez aucun secret dans le navigateur :
+
+```sql
+insert into public.user_roles (user_id, role)
+values ('REMPLACER_PAR_UUID_AUTH'::uuid, 'admin')
+on conflict (user_id) do update set role = excluded.role;
+```
+
+Les autres changements de rôle passent ensuite par la fonction `admin_set_user_role`, qui exige déjà un rôle administrateur.
 
 ## Structure du projet
 
@@ -61,11 +97,16 @@ ipto-website/
 ├── contact.html
 ├── assets/
 │   ├── css/
-│   │   └── ipto.css        # Design system et styles de toutes les pages
+│   │   ├── ipto.css        # Design system et styles du site vitrine
+│   │   └── student.css     # Styles isolés du portail étudiant
 │   ├── js/
-│   │   └── script.js       # Menu, carrousel, formulaire, FAQ, animations…
+│   │   ├── script.js       # Menu, carrousel, formulaire, FAQ, animations…
+│   │   └── student/        # Client Supabase et scripts du portail
 │   ├── images/             # Logo et photos du campus / des filières
 │   └── docs/               # Documents à télécharger (formulaire d'inscription)
+├── student/                # Connexion, espaces étudiant, enseignant et administration
+├── supabase/
+│   └── migrations/         # Migrations PostgreSQL
 ├── docs/
 │   └── screenshots/        # Captures utilisées dans ce README
 ├── .gitignore
@@ -74,7 +115,7 @@ ipto-website/
 
 ## Organisation du CSS
 
-Tout le style est dans `assets/css/ipto.css`, écrit avec une propriété par ligne et une indentation de 4 espaces. Le sommaire en haut du fichier liste les sections dans l'ordre : variables et base, composants communs, accueil, pages internes, puis les règles « responsive » (tablette et mobile) regroupées à la fin par taille d'écran.
+Le site public est stylé dans `assets/css/ipto.css`. Le portail étudiant et son interface d’administration utilisent `assets/css/student.css` afin de garder leurs styles isolés.
 
 ## Couleurs
 
@@ -130,7 +171,7 @@ Puis ouvrez <http://localhost:8000>.
 | Les coordonnées et horaires | `contact.html` et le pied de page de chaque page |
 | Le destinataire du formulaire de contact | Attribut `action` du formulaire dans `contact.html` (lien Formspree) |
 | L'identifiant Google Analytics | Balise `gtag` dans le `<head>` de chaque page |
-| Le bouton « Espace étudiant » | Lien `data-soon` dans la barre de navigation : remplacez-le par l'adresse de l'espace étudiant quand il existera |
+| Le bouton « Espace étudiant » | Liens de navigation dans les six pages HTML ; il ouvre `student/login.html` |
 
 > Le menu et le pied de page sont répétés dans chaque page HTML : une modification doit être reportée dans les 6 fichiers.
 
