@@ -2090,7 +2090,7 @@ html:not(.js) .fcard-drawer > div {
     margin-top: 2rem;
     padding: 5.5rem 0;
     color: var(--ink);
-    background: #f7f9fd;
+    background: #f6f5f1;
 }
 
 .tarifs .container {
@@ -2119,32 +2119,32 @@ html:not(.js) .fcard-drawer > div {
 
 .tarif {
     padding: 2rem 1.6rem 1.7rem;
-    border: 1px solid #e4eaf3;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #e7e4dc;
+    border-radius: 14px;
+    background: #fff;
     color: var(--navy-900);
     text-align: center;
-    box-shadow: 0 12px 30px rgba(17, 40, 84, 0.07);
+    box-shadow: 0 2px 8px rgba(35, 38, 42, 0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .tarif:hover {
-    transform: translateY(-5px);
-    border-color: #cbd8eb;
-    box-shadow: 0 20px 38px rgba(17, 40, 84, 0.12);
+    transform: translateY(-2px);
+    border-color: #d7d1c5;
+    box-shadow: 0 5px 14px rgba(35, 38, 42, 0.07);
 }
 
 .tarif-vedette {
     padding: 2.4rem 1.8rem 2.1rem;
-    border: 1px solid var(--navy-900);
-    background: linear-gradient(145deg, #10265a 0%, #163d78 100%);
+    border: 1px solid #18325b;
+    background: #18325b;
     color: #fff;
-    box-shadow: 0 20px 42px rgba(16, 38, 90, 0.2);
+    box-shadow: 0 4px 12px rgba(24, 50, 91, 0.12);
 }
 
 .tarif-vedette:hover {
-    border-color: var(--navy-900);
-    box-shadow: 0 25px 48px rgba(16, 38, 90, 0.25);
+    border-color: #18325b;
+    box-shadow: 0 7px 16px rgba(24, 50, 91, 0.16);
 }
 
 .tarif-icon {
@@ -2154,8 +2154,8 @@ html:not(.js) .fcard-drawer > div {
     width: 58px;
     height: 58px;
     margin-bottom: 1.1rem;
-    border-radius: 17px;
-    background: #fff5dc;
+    border-radius: 12px;
+    background: #f4f0e5;
     color: var(--gold-600);
     font-size: 1.3rem;
 }
@@ -2245,10 +2245,10 @@ html:not(.js) .fcard-drawer > div {
     gap: 1rem 2rem;
     margin-top: 1.5rem;
     padding: 1.5rem 1.8rem;
-    border: 1px solid rgba(16, 38, 90, 0.1);
-    border-radius: 18px;
+    border: 1px solid #e7e4dc;
+    border-radius: 14px;
     background: #fff;
-    box-shadow: 0 10px 26px rgba(17, 40, 84, 0.06);
+    box-shadow: 0 2px 8px rgba(35, 38, 42, 0.04);
 }
 
 .total-label {
@@ -2288,9 +2288,9 @@ html:not(.js) .fcard-drawer > div {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.2rem 1.4rem;
-    border: 1px solid #e4eaf3;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid #e7e4dc;
+    border-radius: 14px;
+    background: #fff;
 }
 
 .avantage .icon {
@@ -2300,9 +2300,9 @@ html:not(.js) .fcard-drawer > div {
     justify-content: center;
     width: 44px;
     height: 44px;
-    border-radius: 12px;
-    background: #fff3d4;
-    color: var(--gold-texte);
+    border-radius: 10px;
+    background: #f4f0e5;
+    color: #896b2e;
 }
 
 .avantage h3 {
